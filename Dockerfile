@@ -13,4 +13,5 @@ RUN npm install
 
 EXPOSE 8000
 
-CMD ["npm", "Ovl"]
+CMD ["npm", "run", "Ovl"]
+
