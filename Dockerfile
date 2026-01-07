@@ -1,16 +1,13 @@
-FROM node:20-bullseye-slim
+FROM node:lts-buster
 
-RUN apt-get update && apt-get install -y \
-    ffmpeg \
-    git \
-    && rm -rf /var/lib/apt/lists/*
+RUN git clone https://github.com/Ainz-devs/sess /root/OVL-MD-V2-SESSION-ID-GEN
 
-RUN git clone https://github.com/Ainz-fo/NEO-BOT-MD.git /ovl_bot
+WORKDIR /root/OVL-MD-V2-SESSION-ID-GEN
 
-WORKDIR /ovl_bot
-
-RUN npm install
+COPY package.json .
+RUN npm i
+COPY . .
 
 EXPOSE 8000
 
-CMD ["npm", "start"]
+CMD ["npm","run","Ovl"]
